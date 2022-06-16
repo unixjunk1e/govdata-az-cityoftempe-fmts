@@ -1,0 +1,57 @@
+-- DATA: https://data.tempe.gov/datasets/tempegov::calls-for-service/about
+-- public.calls_for_service_csv (SEE tables-and-views-sources.sql)
+-- copy general_offenses_csv from '/tmp/gen_offenses_csv.csv' DELIMITER ',' CSV HEADER; 
+
+-- add an id column, good practice, but this will break future imports (copy) from CSV..
+alter table gen_offenses_csv add column id int not null primary key auto_increment;
+
+-- TRIM columns commonly in need of it..
+UPDATE `gen_offenses_csv` SET `X` = TRIM(`X`);
+UPDATE `gen_offenses_csv` SET `Y` = TRIM(`Y`);
+UPDATE `gen_offenses_csv` SET `OBJECTID` = TRIM(`OBJECTID`);
+UPDATE `gen_offenses_csv` SET `primary_key` = TRIM(`primary_key`);
+UPDATE `gen_offenses_csv` SET `occ_dt` = TRIM(`occ_dt`);
+UPDATE `gen_offenses_csv` SET `obfAddress` = TRIM(`obfAddress`);
+UPDATE `gen_offenses_csv` SET `x_rand` = TRIM(`x_rand`);
+UPDATE `gen_offenses_csv` SET `y_rand` = TRIM(`y_rand`);
+UPDATE `gen_offenses_csv` SET `OffenseCustom` = TRIM(`OffenseCustom`);
+UPDATE `gen_offenses_csv` SET `locationTranslation` = TRIM(`locationTranslation`);
+UPDATE `gen_offenses_csv` SET `place_name` = TRIM(`place_name`);
+UPDATE `gen_offenses_csv` SET `CFSType` = TRIM(`CFSType`);
+UPDATE `gen_offenses_csv` SET `Latitude` = TRIM(`Latitude`);
+UPDATE `gen_offenses_csv` SET `Longitude` = TRIM(`Longitude`);
+
+
+
+-- DATA: https://data.tempe.gov/datasets/tempegov::general-offenses/about
+-- public.calls_for_service_csv (SEE tables-and-views-sources.sql)
+-- copy calls_for_service_csv from '/tmp/calls_for_service_csv.csv' DELIMITER ',' CSV HEADER;
+
+-- add an id column, good practice, but this will break future imports (copy) from CSV..
+alter table calls_for_service_csv add column id int not null primary key auto_increment;
+
+-- TRIM columns commonly in need of it..
+UPDATE `calls_for_service_csv` SET `X` = TRIM(`X`);
+UPDATE `calls_for_service_csv` SET `Y` = TRIM(`Y`);
+UPDATE `calls_for_service_csv` SET `OBJECTID` = TRIM(`OBJECTID`);
+UPDATE `calls_for_service_csv` SET `primary_key` = TRIM(`primary_key`);
+UPDATE `calls_for_service_csv` SET `final_case_type` = TRIM(`final_case_type`);
+UPDATE `calls_for_service_csv` SET `occ_year` = TRIM(`occ_year`);
+UPDATE `calls_for_service_csv` SET `occ_dt` = TRIM(`occ_dt`);
+UPDATE `calls_for_service_csv` SET `obfAddress` = TRIM(`obfAddress`);
+UPDATE `calls_for_service_csv` SET `priority` = TRIM(`priority`);
+UPDATE `calls_for_service_csv` SET `zone` = TRIM(`zone`);
+UPDATE `calls_for_service_csv` SET `grid` = TRIM(`grid`);
+UPDATE `calls_for_service_csv` SET `how_received` = TRIM(`how_received`);
+UPDATE `calls_for_service_csv` SET `unit_id1` = TRIM(`unit_id1`);
+UPDATE `calls_for_service_csv` SET `unit_id2` = TRIM(`unit_id2`);
+UPDATE `calls_for_service_csv` SET `unit_id3` = TRIM(`unit_id3`);
+UPDATE `calls_for_service_csv` SET `report_flag` = TRIM(`report_flag`);
+UPDATE `calls_for_service_csv` SET `case_status` = TRIM(`case_status`);
+UPDATE `calls_for_service_csv` SET `cleared_by` = TRIM(`cleared_by`);
+UPDATE `calls_for_service_csv` SET `x_rand` = TRIM(`x_rand`);
+UPDATE `calls_for_service_csv` SET `y_rand` = TRIM(`y_rand`);
+UPDATE `calls_for_service_csv` SET `disclaimer` = TRIM(`disclaimer`);
+UPDATE `calls_for_service_csv` SET `place_name` = TRIM(`place_name`);
+UPDATE `calls_for_service_csv` SET `CFSType` = TRIM(`CFSType`);
+

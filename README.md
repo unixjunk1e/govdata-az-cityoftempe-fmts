@@ -1,7 +1,7 @@
 Description
 ==========
 
-Selected datasets from the City of Tempe, AZ's open data, in SQL (PGSQL) format.
+Selected datasets from the [City of Tempe Open Tempe](https://data.tempe.gov/pages/About%20Hub "City of Tempe Open Tempe - About") in Arizona, migrated to SQL ([PostgreSQL](https://www.postgresql.org/)) format.
 
 Current Datasets
 ================
@@ -15,7 +15,7 @@ Notes
 * Updated, June 15, 2022
 
 Sources:
-* [Tempe Open Data, City of Tempe, AZ](https://data.tempe.gov "Tempe Open Data, City of Tempe, AZ")
+* [Open Tempe Data, City of Tempe, AZ](https://data.tempe.gov "Open Tempe Data, City of Tempe, AZ")
 * [Calls for Service, Tempe, AZ](https://data.tempe.gov/datasets/tempegov::calls-for-service/about "Calls for Service, Tempe, AZ")
 * [General Offenses, Tempe, AZ](https://data.tempe.gov/datasets/tempegov::general-offenses/about "General Offenses, Tempe, AZ")
 

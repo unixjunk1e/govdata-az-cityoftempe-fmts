@@ -12,5 +12,5 @@ Current Datasets
 Notes
 =====
 
-* Updated, June 15, 2022 (General Offenses, June 6th)
+* Updated, June 15, 2022
 

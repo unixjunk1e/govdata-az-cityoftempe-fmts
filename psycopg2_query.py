@@ -1,15 +1,13 @@
 import os
+# from typing import Tuple
 import psycopg2
 
 
 def print_query(sql):
-    # Use a breakpoint in the code line below to debug your script.
-    # print(f'Hi, {sql}')  # Press Ctrl+F8 to toggle the breakpoint.
     pghost = os.getenv('PG_HOSTNAME')
     pguser = os.getenv('PG_USER')
     pgpass = os.getenv('PG_PASSWD')
     pgdb = 'az_tempe_publicsafety'  # os.getenv('PG_DATABASE')
-
     pgdsn = "dbname='%s' host='%s' user='%s' password='%s'" % (pgdb, pghost, pguser, pgpass)
     conn = psycopg2.connect(dsn=pgdsn)
     cur = conn.cursor()
@@ -31,7 +29,7 @@ def print_query(sql):
 if __name__ == '__main__':
     # print_query("SELECT call_count, TRIM(place_name) as place_name, cfstype FROM vw_cfs_cfstypes_counts WHERE cfstype
     #  ilike '%THEFT%' AND place_name like '%TARGET%' ORDER BY call_count DESC LIMIT 10")
-    query_args = ('%THEFT%', '%TARGET%')
+    query_args_tuple = ('%THEFT%', '%TARGET%')
     print_query("""
     SELECT * 
     FROM 
@@ -43,4 +41,4 @@ if __name__ == '__main__':
         occ_year DESC, occ_dt DESC
     LIMIT 
         1000
-    """ % query_args)
+    """ % query_args_tuple)

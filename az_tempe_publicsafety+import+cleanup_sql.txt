@@ -1,23 +1,18 @@
 -- DATA: https://data.tempe.gov/datasets/tempegov::calls-for-service/about
 -- public.calls_for_service_csv (SEE tables-and-views-sources.sql)
--- copy general_offenses_csv from '/tmp/gen_offenses_csv.csv' DELIMITER ',' CSV HEADER; 
+-- copy general_offenses_csv from '/tmp/general_offenses_csv.csv' DELIMITER ',' CSV HEADER; 
 
 -- add an id column, good practice, but this will break future imports (copy) from CSV..
--- alter table gen_offenses_csv add column id int not null primary key auto_increment;
+-- alter table general_offenses_csv add column id int not null primary key auto_increment;
 alter table general_offenses_csv add primary key (objectid) ;
 
 -- TRIM columns commonly in need of it..
-UPDATE `gen_offenses_csv` SET `primary_key` = TRIM(`primary_key`);
-UPDATE `gen_offenses_csv` SET `occ_dt` = TRIM(`occ_dt`);
-UPDATE `gen_offenses_csv` SET `obfAddress` = TRIM(`obfAddress`);
-UPDATE `gen_offenses_csv` SET `x_rand` = TRIM(`x_rand`);
-UPDATE `gen_offenses_csv` SET `y_rand` = TRIM(`y_rand`);
-UPDATE `gen_offenses_csv` SET `OffenseCustom` = TRIM(`OffenseCustom`);
-UPDATE `gen_offenses_csv` SET `locationTranslation` = TRIM(`locationTranslation`);
-UPDATE `gen_offenses_csv` SET `place_name` = TRIM(`place_name`);
-UPDATE `gen_offenses_csv` SET `CFSType` = TRIM(`CFSType`);
-UPDATE `gen_offenses_csv` SET `Latitude` = TRIM(`Latitude`);
-UPDATE `gen_offenses_csv` SET `Longitude` = TRIM(`Longitude`);
+UPDATE general_offenses_csv SET primary_key = TRIM(BOTH FROM primary_key);
+UPDATE general_offenses_csv SET occ_dt = TRIM(BOTH FROM occ_dt);
+UPDATE general_offenses_csv SET obfaddress = TRIM(BOTH FROM obfaddress);
+UPDATE general_offenses_csv SET offensecustom = TRIM(BOTH FROM offensecustom);
+UPDATE general_offenses_csv SET locationtranslation = TRIM(BOTH FROM locationtranslation);
+UPDATE general_offenses_csv SET place_name = TRIM(BOTH FROM place_name);
 
 
 
@@ -30,23 +25,23 @@ UPDATE `gen_offenses_csv` SET `Longitude` = TRIM(`Longitude`);
 alter table calls_for_service_csv add primary key (objectid);
 
 -- TRIM columns commonly in need of it..
-UPDATE calls_for_service_csv SET primary_key = TRIM(primary_key);
-UPDATE calls_for_service_csv SET final_case_type = TRIM(final_case_type);
-UPDATE calls_for_service_csv SET occ_year = TRIM(occ_year);
-UPDATE calls_for_service_csv SET occ_dt = TRIM(occ_dt);
-UPDATE calls_for_service_csv SET obfAddress = TRIM(obfAddress);
-UPDATE calls_for_service_csv SET priority = TRIM(priority);
-UPDATE calls_for_service_csv SET zone = TRIM(zone);
-UPDATE calls_for_service_csv SET grid = TRIM(grid);
-UPDATE calls_for_service_csv SET how_received = TRIM(how_received);
-UPDATE calls_for_service_csv SET unit_id1 = TRIM(unit_id1);
-UPDATE calls_for_service_csv SET unit_id2 = TRIM(unit_id2);
-UPDATE calls_for_service_csv SET unit_id3 = TRIM(unit_id3);
-UPDATE calls_for_service_csv SET report_flag = TRIM(report_flag);
-UPDATE calls_for_service_csv SET case_status = TRIM(case_status);
-UPDATE calls_for_service_csv SET cleared_by = TRIM(cleared_by);
-UPDATE calls_for_service_csv SET x_rand = TRIM(x_rand);
-UPDATE calls_for_service_csv SET y_rand = TRIM(y_rand);
-UPDATE calls_for_service_csv SET disclaimer = TRIM(disclaimer);
-UPDATE calls_for_service_csv SET place_name = TRIM(place_name);
-UPDATE calls_for_service_csv SET CFSType = TRIM(CFSType);
+UPDATE calls_for_service_csv SET primary_key = TRIM(BOTH FROM primary_key);
+UPDATE calls_for_service_csv SET final_case_type = TRIM(BOTH FROM final_case_type);
+UPDATE calls_for_service_csv SET occ_year = TRIM(BOTH FROM occ_year);
+UPDATE calls_for_service_csv SET occ_dt = TRIM(BOTH FROM occ_dt);
+UPDATE calls_for_service_csv SET obfaddress = TRIM(BOTH FROM obfaddress);
+UPDATE calls_for_service_csv SET priority = TRIM(BOTH FROM priority);
+UPDATE calls_for_service_csv SET zone = TRIM(BOTH FROM zone);
+UPDATE calls_for_service_csv SET grid = TRIM(BOTH FROM grid);
+UPDATE calls_for_service_csv SET how_received = TRIM(BOTH FROM how_received);
+UPDATE calls_for_service_csv SET unit_id1 = TRIM(BOTH FROM unit_id1);
+UPDATE calls_for_service_csv SET unit_id2 = TRIM(BOTH FROM unit_id2);
+UPDATE calls_for_service_csv SET unit_id3 = TRIM(BOTH FROM unit_id3);
+UPDATE calls_for_service_csv SET report_flag = TRIM(BOTH FROM report_flag);
+UPDATE calls_for_service_csv SET case_status = TRIM(BOTH FROM case_status);
+UPDATE calls_for_service_csv SET cleared_by = TRIM(BOTH FROM cleared_by);
+UPDATE calls_for_service_csv SET x_rand = TRIM(BOTH FROM x_rand);
+UPDATE calls_for_service_csv SET y_rand = TRIM(BOTH FROM y_rand);
+UPDATE calls_for_service_csv SET disclaimer = TRIM(BOTH FROM disclaimer);
+UPDATE calls_for_service_csv SET place_name = TRIM(BOTH FROM place_name);
+UPDATE calls_for_service_csv SET cfstype = TRIM(cfstype);

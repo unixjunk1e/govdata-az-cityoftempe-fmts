@@ -29,16 +29,25 @@ def print_query(sql):
 if __name__ == '__main__':
     # print_query("SELECT call_count, TRIM(place_name) as place_name, cfstype FROM vw_cfs_cfstypes_counts WHERE cfstype
     #  ilike '%THEFT%' AND place_name like '%TARGET%' ORDER BY call_count DESC LIMIT 10")
-    query_args_tuple = ('%THEFT%', '%TARGET%')
+    query_args_tuple = ('%THEFT%', '%THEFT%', '%TARGET%', '%TARGET%')
     print_query("""
     SELECT * 
     FROM 
-        calls_for_service_csv 
+        vw_offenses_calls_joined 
     WHERE
-        cfstype ilike '%s' 
-        AND place_name like '%s' 
+        (
+                cfs_cfstype ilike '%s'
+            OR
+                gof_offensecustom like '%s' 
+        )
+        AND 
+        (
+                cfs_place_name like '%s' 
+            OR 
+                gof_place_name like '%s' 
+        )
     ORDER BY 
-        occ_year DESC, occ_dt DESC
+        cfs_occ_dt DESC
     LIMIT 
-        1000
+        100
     """ % query_args_tuple)

@@ -3,7 +3,8 @@
 -- copy general_offenses_csv from '/tmp/gen_offenses_csv.csv' DELIMITER ',' CSV HEADER; 
 
 -- add an id column, good practice, but this will break future imports (copy) from CSV..
-alter table gen_offenses_csv add column id int not null primary key auto_increment;
+-- alter table gen_offenses_csv add column id int not null primary key auto_increment;
+alter table general_offenses_csv add primary key (objectid) ;
 
 -- TRIM columns commonly in need of it..
 UPDATE `gen_offenses_csv` SET `X` = TRIM(`X`);
@@ -28,7 +29,8 @@ UPDATE `gen_offenses_csv` SET `Longitude` = TRIM(`Longitude`);
 -- copy calls_for_service_csv from '/tmp/calls_for_service_csv.csv' DELIMITER ',' CSV HEADER;
 
 -- add an id column, good practice, but this will break future imports (copy) from CSV..
-alter table calls_for_service_csv add column id int not null primary key auto_increment;
+-- alter table calls_for_service_csv add column id int not null primary key auto_increment;
+alter table calls_for_service_csv add primary key (objectid);
 
 -- TRIM columns commonly in need of it..
 UPDATE `calls_for_service_csv` SET `X` = TRIM(`X`);
